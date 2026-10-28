@@ -1,0 +1,25 @@
+.bulk-actions-bar {
+  margin-bottom: 15px;
+  background: #e9ecef;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.bulk-label {
+  margin: 0 10px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.row-actions {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.row-status-select {
+  padding: 4px;
+}

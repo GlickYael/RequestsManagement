@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* פריימיטיבים משותפים בין כמה קומפוננטות (כפתורים/שדות טופס) - חיים כאן כי
+   Angular מבודד (ViewEncapsulation) CSS של קומפוננטה לקומפוננטה עצמה בלבד. */
+
+.btn {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.btn-primary,
+.btn-gray,
+.btn-danger {
+  border: none;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: white;
+}
+
+.btn--bulk-submit {
+  margin-right: 10px;
+  padding: 5px 15px;
+}
+
+.btn-gray {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-danger {
+  background: #dc3545;
+  color: white;
+  border-radius: 4px;
+  padding: 8px 15px;
+}
+
+.control {
+  padding: 8px;
+}
+
+.control--spaced {
+  margin-right: 5px;
+}
+
+.control-sm {
+  padding: 6px;
+}
+
+.control-xs {
+  padding: 5px;
+}
+
+.text-filter {
+  padding: 6px;
+  width: 140px;
+}
+
+.filter-label {
+  margin-left: 5px;
+}

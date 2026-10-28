@@ -1,0 +1,9 @@
+<div class="pagination-bar">
+  <button (click)="goToPrevious()" [disabled]="page() === 1" class="btn">
+    הקודם
+  </button>
+  <span>עמוד <strong>{{ page() }}</strong></span>
+  <button (click)="goToNext()" [disabled]="!hasNextPage()" class="btn">
+    הבא
+  </button>
+</div>

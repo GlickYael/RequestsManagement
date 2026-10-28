@@ -1,0 +1,51 @@
+.filters-bar {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filters-bar--search {
+  margin-bottom: 10px;
+}
+
+.filters-bar--sort {
+  margin-bottom: 10px;
+}
+
+.filters-bar--advanced {
+  margin-bottom: 20px;
+}
+
+.filters-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  margin: 0 0 6px;
+}
+
+.search-input {
+  padding: 8px;
+  width: 250px;
+  font-size: 14px;
+}
+
+.sort-direction {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.sort-direction-btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+}
+
+.sort-direction-btn.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}

@@ -1,0 +1,99 @@
+<!-- Free-text search: loose OR-match across Title/OrganizationName -->
+<h3 class="filters-section-title">חיפוש</h3>
+<div class="filters-bar filters-bar--search">
+  <input
+    type="text"
+    placeholder="חפש לפי כותרת או שם ארגון..."
+    (input)="onSearchInput($event)"
+    class="search-input"
+  />
+</div>
+
+<!-- Sort + precise per-field filters -->
+<h3 class="filters-section-title">סינון ומיון</h3>
+
+<div class="filters-bar filters-bar--sort">
+  <div>
+    <label class="filter-label">מיין לפי:</label>
+    <select [ngModel]="sortBy()" (ngModelChange)="onSortByChange($event)" class="control">
+      <option *ngFor="let f of sortFields" [value]="f.value">{{ f.label }}</option>
+    </select>
+  </div>
+
+  <div class="sort-direction">
+    <button
+      type="button"
+      class="sort-direction-btn"
+      [class.active]="sortOrder() === 'desc'"
+      (click)="onSortOrderChange('desc')"
+      title="מהגבוה לנמוך"
+    >↓</button>
+    <button
+      type="button"
+      class="sort-direction-btn"
+      [class.active]="sortOrder() === 'asc'"
+      (click)="onSortOrderChange('asc')"
+      title="מהנמוך לגבוה"
+    >↑</button>
+  </div>
+</div>
+
+<div class="filters-bar filters-bar--advanced">
+  <div>
+    <label class="filter-label">סטטוס:</label>
+    <select [ngModel]="selectedStatus()" (ngModelChange)="onStatusChange($event)" class="control">
+      <option value="">הכל</option>
+      <option *ngFor="let s of statusOptions" [value]="s">{{ s }}</option>
+    </select>
+  </div>
+
+  <div>
+    <label class="filter-label">עדיפות:</label>
+    <select [ngModel]="priorityFilter()" (ngModelChange)="onPriorityChange($event)" class="control-sm">
+      <option value="">הכל</option>
+      <option *ngFor="let p of priorityOptions" [value]="p">{{ p }}</option>
+    </select>
+  </div>
+
+  <div>
+    <label class="filter-label">ארגון:</label>
+    <input
+      type="text"
+      placeholder="שם ארגון..."
+      [ngModel]="organizationFilter()"
+      (change)="onOrganizationChange($event.target.value)"
+      class="text-filter"
+    />
+  </div>
+
+  <div>
+    <label class="filter-label">מטפל:</label>
+    <input
+      type="text"
+      placeholder="שם מטפל..."
+      [ngModel]="assignedToFilter()"
+      (change)="onAssignedToChange($event.target.value)"
+      class="text-filter"
+    />
+  </div>
+
+  <div>
+    <label class="filter-label">מתאריך:</label>
+    <input
+      type="date"
+      [ngModel]="fromDateFilter()"
+      (change)="onFromDateChange($event.target.value)"
+      class="control-sm"
+    />
+  </div>
+
+  <div>
+    <label class="filter-label">עד תאריך:</label>
+    <input
+      type="date"
+      [ngModel]="toDateFilter()"
+      (change)="onToDateChange($event.target.value)"
+      class="control-sm"
+    />
+  </div>
+</div>

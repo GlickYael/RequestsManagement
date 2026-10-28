@@ -1,0 +1,29 @@
+<div class="modal-overlay">
+  <div class="modal-box">
+    <h3>היסטוריית שינויים לפנייה מספר {{ requestId() }}</h3>
+
+    <div *ngIf="auditLoading()" class="modal-state">
+      טוען היסטוריה...
+    </div>
+
+    <div *ngIf="!auditLoading() && auditHistory().length === 0" class="modal-state modal-state--muted">
+      אין היסטוריית שינויים זמינה לפנייה זו.
+    </div>
+
+    <ul *ngIf="!auditLoading() && auditHistory().length > 0" class="audit-list">
+      <li *ngFor="let audit of auditHistory()" class="audit-item">
+        <div><strong>מ- {{ audit.previousStatus }}</strong> אל <strong>{{ audit.newStatus }}</strong></div>
+        <div class="audit-meta">
+          תאריך: {{ audit.changedAt | date:'short' }}
+          <span *ngIf="audit.changedBy">| שונה ע"י: {{ audit.changedBy }}</span>
+        </div>
+      </li>
+    </ul>
+
+    <div class="modal-footer">
+      <button (click)="close.emit()" class="btn btn-danger">
+        סגור
+      </button>
+    </div>
+  </div>
+</div>

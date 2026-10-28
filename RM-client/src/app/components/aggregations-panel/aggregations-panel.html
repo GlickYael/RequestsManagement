@@ -1,0 +1,22 @@
+<div class="aggregations-row">
+  <div class="agg-card agg-card--total">
+    <h4>סך הכל פניות (תואמות הסינון)</h4>
+    <p class="agg-card-value">{{ totalCount() }}</p>
+  </div>
+
+  <div class="agg-card agg-card--breakdown">
+    <h4 class="agg-card-title">סך הכל פניות לפי סטטוס</h4>
+    <div *ngFor="let kv of statusCounts() | keyvalue" class="agg-row">
+      <span>{{ kv.key }}</span>
+      <strong>{{ kv.value }}</strong>
+    </div>
+  </div>
+
+  <div class="agg-card agg-card--breakdown">
+    <h4 class="agg-card-title">סך הכל פניות לפי עדיפות</h4>
+    <div *ngFor="let kv of priorityCounts() | keyvalue" class="agg-row">
+      <span>{{ kv.key }}</span>
+      <strong>{{ kv.value }}</strong>
+    </div>
+  </div>
+</div>

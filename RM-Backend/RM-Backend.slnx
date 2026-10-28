@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="RequestsManagement.csproj" />
+  <Project Path="RM-Backend.Tests\RM-Backend.Tests.csproj" />
+</Solution>

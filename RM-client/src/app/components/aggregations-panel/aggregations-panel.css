@@ -1,0 +1,40 @@
+.aggregations-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.agg-card {
+  background: #f8f9fa;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.agg-card--total {
+  min-width: 150px;
+  text-align: center;
+}
+
+.agg-card--breakdown {
+  min-width: 220px;
+}
+
+.agg-card-title {
+  margin: 0 0 8px 0;
+  text-align: center;
+}
+
+.agg-card-value {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 5px 0 0 0;
+}
+
+.agg-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 2px 0;
+}

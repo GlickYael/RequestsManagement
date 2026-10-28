@@ -1,0 +1,11 @@
+:host {
+  font-family: Arial, sans-serif;
+  direction: rtl;
+}
+
+.app-header {
+  background: #007bff;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}

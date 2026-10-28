@@ -1,0 +1,58 @@
+<!-- Bulk Actions area -->
+<div *ngIf="selectedRequestIds().size > 0" class="bulk-actions-bar">
+  <span>נבחרו <strong>{{ selectedRequestIds().size }}</strong> פניות. </span>
+  <label class="bulk-label">שנה סטטוס ל:</label>
+  <select [ngModel]="bulkTargetStatus()" (ngModelChange)="bulkTargetStatus.set($event)" class="control-xs">
+    <option *ngFor="let s of statusOptions" [value]="s">{{ s }}</option>
+  </select>
+  <button (click)="executeBulkUpdate()" class="btn btn-primary btn--bulk-submit">
+    בצע עדכון קבוצתי
+  </button>
+</div>
+
+<table border="1" cellpadding="10" cellspacing="0" class="data-table">
+  <thead>
+    <tr>
+      <th><input type="checkbox" disabled /></th>
+      <th>מזהה</th>
+      <th>כותרת</th>
+      <th>ארגון</th>
+      <th>עדיפות</th>
+      <th>מטפל</th>
+      <th>סטטוס</th>
+      <th>גרסה (Version)</th>
+      <th>תאריך יצירה</th>
+      <th>פעולות</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let req of requests()">
+      <td>
+        <input
+          type="checkbox"
+          [checked]="selectedRequestIds().has(req.id)"
+          (change)="toggleSelection(req.id, $event)"
+        />
+      </td>
+      <td>{{ req.id }}</td>
+      <td>{{ req.title }}</td>
+      <td>{{ req.organizationName }}</td>
+      <td>{{ req.priority }}</td>
+      <td>{{ req.assignedTo }}</td>
+      <td><strong>{{ req.status }}</strong></td>
+      <td>{{ req.version }}</td>
+      <td>{{ req.createdAt | date:'short' }}</td>
+      <td class="row-actions">
+        <select #newStatus class="row-status-select">
+          <option *ngFor="let s of statusOptions" [value]="s" [selected]="s === req.status">{{ s }}</option>
+        </select>
+        <button (click)="updateRequestStatus(req.id, newStatus.value, req.version)" class="btn">
+          עדכן סטטוס
+        </button>
+        <button (click)="openHistory.emit(req.id)" class="btn btn-gray">
+          היסטוריה
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,15 @@
+# Compiler directories
+bin/
+obj/
+
+# dotnet user secrets
+secrets.json
+
+# Local settings
+appsettings.local.json
+appsettings.Development.json
+
+# IDE
+.vs/
+.vscode/
+*.user
