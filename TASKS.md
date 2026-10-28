@@ -153,14 +153,3 @@
 | 5 | בדיקות ותיעוד | ✅ הושלם |
 
 ---
-
-## הערות חשובות 📝
-
-- **Validation Layers:** הגנה בשלוש שכבות (DataAnnotations DTO → Service checks → Entity constraints)
-- **Partial Success Pattern:** עדכונים bulk נכשלים per-item, לא ברמת-batch
-- **Concurrency Control:** כל עדכון בודק Version column למניעת Lost Updates
-- **Performance:** מדודה בפועל עם 100,000 רשומות — לא תיאוריה
-
----
-
-**יום עדכון:** 2026-10-28
